@@ -1,0 +1,195 @@
+---
+title: "Engineering Resource Analysis and Profit Forecasting"
+author: "Abdulfetah"
+date: "2025-03-18"
+output:
+  html_document: default
+  pdf_document: default
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+
+```{r}
+# Load the packages
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(stringr)
+library(tidyr)
+library(rmarkdown)
+
+```
+ Engineering Resource Analysis and Profit Forecasting
+  Timeless Transport Models
+       Summary
+Problem Overview:
+Timeless Transport Models owns three factories producing two product lines each. They require a detailed analysis of expected sales, costs, and profits from June through December 2005.
+
+Methods Used:
+
+Aggregation of weekly data into monthly data.
+Forecasting monthly sales using ARIMA models.
+Calculating production cost per unit and average profit per product line.
+Summary of Findings:
+
+Forecasted stable monthly sales for the second half of 2005.
+Average production cost per unit: approximately $100.91.
+Average profit per unit: approximately $399.09.
+Total expected profit (June-Dec 2005): approximately $678,504.90.
+ Data Stats
+
+```{r}
+library(readr)
+library(dplyr)
+library(lubridate)
+
+production_data <- read_csv("./data/weekly_factory_production.csv") %>%
+  mutate(week = as.Date(week, "%m/%d/%Y"))
+
+# Preview Data
+head(production_data)
+
+
+```
+Aggregate Weekly Data to Monthly Data:
+```{r}
+monthly_data <- production_data %>%
+  mutate(month = floor_date(week, "month")) %>%
+  group_by(month) %>%
+  summarise(
+    total_cost = sum(weekly_cost),
+    Classic_Cars = sum(`Classic Cars`),
+    Motorcycles = sum(Motorcycles),
+    Planes = sum(Planes),
+    Ships = sum(Ships)
+  )
+
+# Display summarized monthly data
+library(knitr)
+kable(head(monthly_data, 3), caption = "Key Statistics (Monthly Data):",
+      col.names = c("Month", "Total Cost", "Classic Cars", "Motorcycles", "Planes", "Ships"))
+
+```
+. Analysis
+Forecast Monthly Sales (ARIMA)
+Forecast sales for each product line from June to December 2005:
+
+```{r}
+
+library(forecast)
+
+training_data <- monthly_data %>% filter(month < "2005-06-01")
+
+# Classic Cars Forecast
+ts_classic <- ts(training_data$Classic_Cars, start = c(2003,1), frequency=12)
+forecast_classic <- forecast(auto.arima(ts_classic), h=7)
+forecast_classic_df <- data.frame(forecast_classic)
+kable(forecast_classic_df, caption="Classic Cars Monthly Forecast")
+
+# Motorcycles Forecast
+ts_motorcycles <- ts(training_data$Motorcycles, start = c(2003,1), frequency=12)
+forecast_motorcycles <- forecast(auto.arima(ts_motorcycles), h=7)
+forecast_motorcycles_df <- data.frame(forecast_motorcycles)
+kable(forecast_motorcycles_df, caption="Motorcycles Monthly Forecast")
+
+# Planes Forecast
+ts_planes <- ts(training_data$Planes, start = c(2003,1), frequency=12)
+forecast_planes <- forecast(auto.arima(ts_planes), h=7)
+forecast_planes_df <- data.frame(forecast_planes)
+kable(forecast_planes_df, caption="Planes Monthly Forecast")
+
+# Ships Forecast
+ts_ships <- ts(training_data$Ships, start = c(2003,1), frequency=12)
+forecast_ships <- forecast(auto.arima(ts_ships), h=7)
+forecast_ships_df <- data.frame(forecast_ships)
+kable(forecast_ships_df, caption="Ships Monthly Forecast")
+
+```
+ Calculate Cost per Unit and Average Profit per Product Line
+```{r}
+total_units <- colSums(training_data[, c("Classic_Cars", "Motorcycles", "Planes", "Ships")])
+total_cost <- sum(training_data$total_cost)
+
+# Production cost per unit
+cost_per_unit <- total_cost / sum(total_units)
+
+# Assume selling price is $500 per unit
+selling_price_per_unit <- 500
+avg_profit_per_unit <- selling_price_per_unit - cost_per_unit
+
+results_df <- data.frame(
+  "Cost per Unit" = cost_per_unit,
+  "Average Profit per Unit" = avg_profit_per_unit
+)
+
+kable(results_df, caption = "Production Cost and Average Profit per Unit")
+
+```
+ Calculate Total Expected Profit (Jun-Dec 2005)
+```{r}
+total_forecasted_units <- sum(
+  forecast_classic$mean,
+  forecast_motorcycles$mean,
+  forecast_planes$mean,
+  forecast_ships$mean
+)
+
+total_expected_profit <- total_forecasted_units * avg_profit_per_unit
+
+# Display total expected profit
+total_profit_df <- data.frame("Total Expected Profit (Jun-Dec 2005)" = total_expected_profit)
+kable(total_profit_df, caption = "Total Profit Forecast")
+
+```
+Conclusion
+Based on historical production data and forecasted sales, Timeless Transport Models is expected to achieve approximately $678,504.90 profit during the second half of 2005 (June-December). Regular updates to forecasting models and cost management practices will enhance reliability and profitability.
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
