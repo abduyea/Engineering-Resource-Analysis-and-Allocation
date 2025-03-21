@@ -5,6 +5,7 @@ date: "2025-03-18"
 output:
   html_document: default
   pdf_document: default
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE, warning=FALSE)
@@ -22,24 +23,24 @@ library(tidyr)
 library(rmarkdown)
 
 ```
- Engineering Resource Analysis and Profit Forecasting
-  Timeless Transport Models
-       Summary
+Engineering Resource Analysis and Profit Forecasting for Timeless Transport Models
 Problem Overview:
-Timeless Transport Models owns three factories producing two product lines each. They require a detailed analysis of expected sales, costs, and profits from June through December 2005.
+Timeless Transport Models operates three factories, each producing two product lines. The company seeks a detailed analysis of expected sales, costs, and profits from June through December 2005. The analysis should include:
+- Forecasting monthly sales for each product line.
+- Estimating the production cost per unit.
+- Calculating the average profit per product line.
+- Forecasting total profit for the second half of 2005.
 
-Methods Used:
+  Methods Used:
+1. Aggregation of weekly production data into monthly data.
+2. Forecasting monthly sales using ARIMA models.
+3. Estimation of production costs per unit and average profit per product line.
 
-Aggregation of weekly data into monthly data.
-Forecasting monthly sales using ARIMA models.
-Calculating production cost per unit and average profit per product line.
-Summary of Findings:
-
-Forecasted stable monthly sales for the second half of 2005.
-Average production cost per unit: approximately $100.91.
-Average profit per unit: approximately $399.09.
-Total expected profit (June-Dec 2005): approximately $678,504.90.
- Data Stats
+  Summary of Findings:
+- Forecasted stable monthly sales for the second half of 2005.
+- Average production cost per unit: approximately \$100.91.
+- Average profit per unit: approximately \$399.09.
+- Total expected profit (June-Dec 2005): approximately \$678,504.90.
 
 ```{r}
 library(readr)
@@ -55,6 +56,7 @@ head(production_data)
 
 ```
 Aggregate Weekly Data to Monthly Data:
+
 ```{r}
 monthly_data <- production_data %>%
   mutate(month = floor_date(week, "month")) %>%
