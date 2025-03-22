@@ -26,7 +26,6 @@ library(knitr)
 
 ```
 
-```
 Summary
 Timeless Transport Models operates three factories producing various product lines. The company is aiming to forecast profits for the second half of 2005. 
 The questions to address are:
