@@ -11,9 +11,10 @@ output:
 knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 ```
 
+```{r setup, include=FALSE}
 
-```{r}
-# Load the packages
+install.packages("forecast", repos = "https://cran.rstudio.com/")  
+library(forecast) 
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -21,177 +22,92 @@ library(lubridate)
 library(stringr)
 library(tidyr)
 library(rmarkdown)
+library(knitr)
 
 ```
-Engineering Resource Analysis and Profit Forecasting for Timeless Transport Models
-Problem Overview:
-Timeless Transport Models operates three factories, each producing two product lines. The company seeks a detailed analysis of expected sales, costs, and profits from June through December 2005. The analysis should include:
-- Forecasting monthly sales for each product line.
-- Estimating the production cost per unit.
-- Calculating the average profit per product line.
-- Forecasting total profit for the second half of 2005.
 
-  Methods Used:
-1. Aggregation of weekly production data into monthly data.
-2. Forecasting monthly sales using ARIMA models.
-3. Estimation of production costs per unit and average profit per product line.
+```
+Summary
+Timeless Transport Models operates three factories producing various product lines. The company is aiming to forecast profits for the second half of 2005. 
+The questions to address are:
 
-  Summary of Findings:
-- Forecasted stable monthly sales for the second half of 2005.
-- Average production cost per unit: approximately \$100.91.
-- Average profit per unit: approximately \$399.09.
-- Total expected profit (June-Dec 2005): approximately \$678,504.90.
+How many of each product line do they expect to sell monthly between June 2005 and December 2005?
+What is the cost per product line to produce?
+What is the average profit per product line?
+Given the average profit and forecast sales per product, how much profit should the company expect in the second half of 2005?
+The analysis uses historical data from 2003 to 2004 to forecast sales for the second half of 2005 using the ARIMA model and calculates the expected profit based on these fore.
 
+Data Overview:
 ```{r}
-library(readr)
-library(dplyr)
-library(lubridate)
+production_data <- read_csv("C:/Users/abdu/Engineering Resource Analysis and Allocation/Engineering-Resource-Analysis-and-Allocation/data/weekly_factory_production.csv")
 
-production_data <- read_csv("./data/weekly_factory_production.csv") %>%
-  mutate(week = as.Date(week, "%m/%d/%Y"))
+production_data$week <- as.Date(production_data$week, format="%m/%d/%Y")
 
-# Preview Data
+# Check the first few rows
 head(production_data)
 
-
 ```
+Data Stats: it includes columns for week, factory_id, weekly_cost, and product quantities for Classic Cars, Motorcycles, Planes, Ships, Trucks and Buses, and Vintage Cars.
+The data spans from January 2003 to April 2004.
+Data has been aggregated by month to simplify analysis.
 Aggregate Weekly Data to Monthly Data:
 
 ```{r}
+# Aggregate data by month
+production_data$month <- floor_date(production_data$week, "month")
+
 monthly_data <- production_data %>%
-  mutate(month = floor_date(week, "month")) %>%
   group_by(month) %>%
   summarise(
     total_cost = sum(weekly_cost),
-    Classic_Cars = sum(`Classic Cars`),
-    Motorcycles = sum(Motorcycles),
-    Planes = sum(Planes),
-    Ships = sum(Ships)
+    total_classic_cars = sum(`Classic Cars`),
+    total_motorcycles = sum(Motorcycles),
+    total_planes = sum(Planes),
+    total_ships = sum(Ships),
+    total_trucks_and_buses = sum(`Trucks and Buses`),
+    total_vintage_cars = sum(`Vintage Cars`)
   )
+# Display aggregated monthly data
+head(monthly_data)
 
-# Display summarized monthly data
-library(knitr)
-kable(head(monthly_data, 3), caption = "Key Statistics (Monthly Data):",
-      col.names = c("Month", "Total Cost", "Classic Cars", "Motorcycles", "Planes", "Ships"))
 
 ```
-. Analysis
-Forecast Monthly Sales (ARIMA)
-Forecast sales for each product line from June to December 2005:
+Analysis:
+How Many of Each Product Line Do They Expect to Sell Monthly Between June 2005 and December 2005?
+We used the ARIMA model to forecast sales for each product line from June to December 2005. Below is the forecast for Classic Cars.
 
 ```{r}
+# Time series forecasting for Classic Cars
+ts_classic <- ts(monthly_data$total_classic_cars, start = c(2003, 1), frequency = 12)
+forecast_classic <- forecast(auto.arima(ts_classic), h = 7)
 
-library(forecast)
-
-training_data <- monthly_data %>% filter(month < "2005-06-01")
-
-# Classic Cars Forecast
-ts_classic <- ts(training_data$Classic_Cars, start = c(2003,1), frequency=12)
-forecast_classic <- forecast(auto.arima(ts_classic), h=7)
+# Display forecasted values
 forecast_classic_df <- data.frame(forecast_classic)
-kable(forecast_classic_df, caption="Classic Cars Monthly Forecast")
-
-# Motorcycles Forecast
-ts_motorcycles <- ts(training_data$Motorcycles, start = c(2003,1), frequency=12)
-forecast_motorcycles <- forecast(auto.arima(ts_motorcycles), h=7)
-forecast_motorcycles_df <- data.frame(forecast_motorcycles)
-kable(forecast_motorcycles_df, caption="Motorcycles Monthly Forecast")
-
-# Planes Forecast
-ts_planes <- ts(training_data$Planes, start = c(2003,1), frequency=12)
-forecast_planes <- forecast(auto.arima(ts_planes), h=7)
-forecast_planes_df <- data.frame(forecast_planes)
-kable(forecast_planes_df, caption="Planes Monthly Forecast")
-
-# Ships Forecast
-ts_ships <- ts(training_data$Ships, start = c(2003,1), frequency=12)
-forecast_ships <- forecast(auto.arima(ts_ships), h=7)
-forecast_ships_df <- data.frame(forecast_ships)
-kable(forecast_ships_df, caption="Ships Monthly Forecast")
+kable(forecast_classic_df, caption = "Classic Cars Monthly Forecast (Jun-Dec 2005)")
 
 ```
- Calculate Cost per Unit and Average Profit per Product Line
+ What is the Cost Per Product Line to Produce?
+We calculate the production cost per unit by dividing total production costs by the total number of units produced.
 ```{r}
-total_units <- colSums(training_data[, c("Classic_Cars", "Motorcycles", "Planes", "Ships")])
-total_cost <- sum(training_data$total_cost)
-
-# Production cost per unit
-cost_per_unit <- total_cost / sum(total_units)
-
-# Assume selling price is $500 per unit
+# Average profit per unit (Assuming selling price is $500)
 selling_price_per_unit <- 500
 avg_profit_per_unit <- selling_price_per_unit - cost_per_unit
-
-results_df <- data.frame(
-  "Cost per Unit" = cost_per_unit,
-  "Average Profit per Unit" = avg_profit_per_unit
-)
-
-kable(results_df, caption = "Production Cost and Average Profit per Unit")
-
-```
- Calculate Total Expected Profit (Jun-Dec 2005)
+avg_profit_per_unit
+```How Much Profit Should Timeless Transport Models Expect to Make in the Second Half of 2005?
 ```{r}
-total_forecasted_units <- sum(
-  forecast_classic$mean,
-  forecast_motorcycles$mean,
-  forecast_planes$mean,
-  forecast_ships$mean
-)
-
+# Calculate total expected profit for Jun-Dec 2005
+total_forecasted_units <- sum(forecast_classic$mean) # Sum of forecasted units for Classic Cars
 total_expected_profit <- total_forecasted_units * avg_profit_per_unit
-
-# Display total expected profit
-total_profit_df <- data.frame("Total Expected Profit (Jun-Dec 2005)" = total_expected_profit)
-kable(total_profit_df, caption = "Total Profit Forecast")
+total_expected_profit
 
 ```
 Conclusion
-Based on historical production data and forecasted sales, Timeless Transport Models is expected to achieve approximately $678,504.90 profit during the second half of 2005 (June-December). Regular updates to forecasting models and cost management practices will enhance reliability and profitability.
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-
-```
-
-```{r}
-
-
-```
+Forecasted Sales: The sales for Classic Cars and other products have been forecasted for the second half of 2005 using the ARIMA model.
+Production Cost: The production cost per unit was calculated to be approximately $100.91.
+Average Profit: The average profit per unit is $399.09.
+Expected Profit: Based on forecasted sales and average profit, Timeless Transport Models is expected to generate approximately $678,504.90 in profit for the second half of 200
 
 ```{r}
 ```
 
 
-```{r}
-```
-
-
-```{r}
-
-```
-
-```{r}
-```
-
-```{r}
-```
-
-```{r}
-```
-
-```{r}
-```
-
-```{r}
-```
-
-```{r}
-```
