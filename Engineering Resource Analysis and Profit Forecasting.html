@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0177)file:///C:/Users/abdu/Engineering%20Resource%20Analysis%20and%20Allocation/Engineering-Resource-Analysis-and-Allocation/Engineering_Resource_Analysis_and_Profit_Forecasting.html -->
+<!-- saved from url=(0154)file:///C:/Users/abdu/Engineering%20Resource%20Analysis%20and%20Allocation/Engineering-Resource-Analysis-and-Allocation/Engineering-Resource-Analysis.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
@@ -7,9 +7,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
 
 
+<meta name="author" content="Abdulfetah">
 
+<meta name="date" content="2025-03-18">
 
-<title>Engineering-Resource-Analysis.knit</title>
+<title>Engineering Resource Analysis and Profit Forecasting</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -332,11 +334,7 @@ display: none;
 
 
 
-<script type="text/javascript" src="file:///C:/Users/abdu/Engineering%20Resource%20Analysis%20and%20Allocation/Engineering-Resource-Analysis-and-Allocation/Engineering_Resource_Analysis_and_Profit_Forecasting_files/MathJax.js.download"></script><style type="text/css">.MathJax_Preview {color: #888; display: contents}
-#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
-#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
-.MathJax_Error {color: #CC0000; font-style: italic}
-</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+<script type="text/javascript" src="./Engineering Resource Analysis and Profit Forecasting_files/MathJax.js.download"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
 .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
 .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
 .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
@@ -431,9 +429,9 @@ display: none;
 .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
 .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
 .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
-</style><script type="text/javascript" src="./Engineering_Resource_Analysis_and_Profit_Forecasting_files/MathJax.js.download"></script></head>
+</style></head>
 
-<body><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+<body><div id="MathJax_Message" style="display: none;"></div>
 
 
 <div class="container-fluid main-container">
@@ -445,43 +443,38 @@ display: none;
 
 
 
+<h1 class="title toc-ignore">Engineering Resource Analysis and Profit
+Forecasting</h1>
+<h4 class="author">Abdulfetah</h4>
+<h4 class="date">2025-03-18</h4>
 
 </div>
 
 
-<hr>
-<p>title: “Engineering Resource Analysis and Profit Forecasting” author:
-“Abdulfetah” date: “2025-03-18” output: html_document: default
-pdf_document: default</p>
-<pre class="r"><code class="hljs"><span class="hljs-comment"><span class="hljs-comment"># Load the packages</span></span>
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(readr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(dplyr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(ggplot2)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(lubridate)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(stringr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(tidyr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(rmarkdown)</code></pre>
-<p>Engineering Resource Analysis and Profit Forecasting Timeless
-Transport Models Summary Problem Overview: Timeless Transport Models
-owns three factories producing two product lines each. They require a
-detailed analysis of expected sales, costs, and profits from June
-through December 2005.</p>
-<p>Methods Used:</p>
-<p>Aggregation of weekly data into monthly data. Forecasting monthly
-sales using ARIMA models. Calculating production cost per unit and
-average profit per product line. Summary of Findings:</p>
-<p>Forecasted stable monthly sales for the second half of 2005. Average
-production cost per unit: approximately $100.91. Average profit per
-unit: approximately $399.09. Total expected profit (June-Dec 2005):
-approximately $678,504.90. Data Stats</p>
-<pre class="r"><code class="hljs"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(readr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(dplyr)
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(lubridate)
+<p>Summary Timeless Transport Models operates three factories producing
+various product lines. The company is aiming to forecast profits for the
+second half of 2005. The questions to address are:</p>
+<p>How many of each product line do they expect to sell monthly between
+June 2005 and December 2005? What is the cost per product line to
+produce? What is the average profit per product line? Given the average
+profit and forecast sales per product, how much profit should the
+company expect in the second half of 2005? The analysis uses historical
+data from 2003 to 2004 to forecast sales for the second half of 2005
+using the ARIMA model and calculates the expected profit based on these
+fore.</p>
+<p>Data Overview</p>
+<pre class="r"><code class="hljs">production_data &lt;- read_csv(<span class="hljs-string">"C:/Users/abdu/Engineering Resource Analysis and Allocation/Engineering-Resource-Analysis-and-Allocation/data/weekly_factory_production.csv"</span>)</code></pre>
+<pre><code class="hljs">## Rows: 375 Columns: 10
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: ","
+## chr (1): week
+## dbl (9): factory_id, weekly_cost, Classic Cars, Motorcycles, Planes, Ships, ...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code class="hljs">production_data$week &lt;- as.Date(production_data$week, format=<span class="hljs-string">"%m/%d/%Y"</span>)
 
-production_data &lt;- read_csv(<span class="hljs-string"><span class="hljs-string">"./data/weekly_factory_production.csv"</span></span>) %&gt;%
-  mutate(week = as.Date(week, <span class="hljs-string"><span class="hljs-string">"%m/%d/%Y"</span></span>))
-
-<span class="hljs-comment"><span class="hljs-comment"># Preview Data</span></span>
+<span class="hljs-comment"># Check the first few rows</span>
 head(production_data)</code></pre>
 <pre><code class="hljs">## # A tibble: 6 × 10
 ##   week       factory_id weekly_cost `Classic Cars` Motorcycles Planes Ships
@@ -494,74 +487,52 @@ head(production_data)</code></pre>
 ## 6 2003-01-19          2       2190.              0           0      1     0
 ## # ℹ 3 more variables: `Trucks and Buses` &lt;dbl&gt;, `Vintage Cars` &lt;dbl&gt;,
 ## #   outlier &lt;dbl&gt;</code></pre>
-<p>Aggregate Weekly Data to Monthly Data:</p>
-<pre class="r"><code class="hljs">monthly_data &lt;- production_data %&gt;%
-  mutate(month = floor_date(week, <span class="hljs-string"><span class="hljs-string">"month"</span></span>)) %&gt;%
+<p>Data Stats: it includes columns for week, factory_id, weekly_cost,
+and product quantities for Classic Cars, Motorcycles, Planes, Ships,
+Trucks and Buses, and Vintage Cars. The data spans from January 2003 to
+April 2004. Data has been aggregated by month to simplify analysis.
+Aggregate Weekly Data to Monthly Data:</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># Aggregate data by month</span>
+production_data$month &lt;- floor_date(production_data$week, <span class="hljs-string">"month"</span>)
+
+monthly_data &lt;- production_data %&gt;%
   group_by(month) %&gt;%
   summarise(
     total_cost = sum(weekly_cost),
-    Classic_Cars = sum(`Classic Cars`),
-    Motorcycles = sum(Motorcycles),
-    Planes = sum(Planes),
-    Ships = sum(Ships)
+    total_classic_cars = sum(`Classic Cars`),
+    total_motorcycles = sum(Motorcycles),
+    total_planes = sum(Planes),
+    total_ships = sum(Ships),
+    total_trucks_and_buses = sum(`Trucks and Buses`),
+    total_vintage_cars = sum(`Vintage Cars`)
   )
 
-<span class="hljs-comment"><span class="hljs-comment"># Display summarized monthly data</span></span>
-<span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(knitr)
-kable(head(monthly_data, <span class="hljs-number"><span class="hljs-number">3</span></span>), caption = <span class="hljs-string"><span class="hljs-string">"Key Statistics (Monthly Data):"</span></span>,
-      col.names = c(<span class="hljs-string"><span class="hljs-string">"Month"</span></span>, <span class="hljs-string"><span class="hljs-string">"Total Cost"</span></span>, <span class="hljs-string"><span class="hljs-string">"Classic Cars"</span></span>, <span class="hljs-string"><span class="hljs-string">"Motorcycles"</span></span>, <span class="hljs-string"><span class="hljs-string">"Planes"</span></span>, <span class="hljs-string"><span class="hljs-string">"Ships"</span></span>))</code></pre>
-<table class="table table-condensed">
-<caption>Key Statistics (Monthly Data):</caption>
-<thead>
-<tr class="header">
-<th align="left">Month</th>
-<th align="right">Total Cost</th>
-<th align="right">Classic Cars</th>
-<th align="right">Motorcycles</th>
-<th align="right">Planes</th>
-<th align="right">Ships</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">2003-01-01</td>
-<td align="right">16381.45</td>
-<td align="right">11</td>
-<td align="right">57</td>
-<td align="right">25</td>
-<td align="right">123</td>
-</tr>
-<tr class="even">
-<td align="left">2003-02-01</td>
-<td align="right">22112.02</td>
-<td align="right">10</td>
-<td align="right">15</td>
-<td align="right">62</td>
-<td align="right">53</td>
-</tr>
-<tr class="odd">
-<td align="left">2003-03-01</td>
-<td align="right">27134.38</td>
-<td align="right">29</td>
-<td align="right">55</td>
-<td align="right">40</td>
-<td align="right">103</td>
-</tr>
-</tbody>
-</table>
-<p>. Analysis Forecast Monthly Sales (ARIMA) Forecast sales for each
-product line from June to December 2005:</p>
-<pre class="r"><code class="hljs"><span class="hljs-keyword"><span class="hljs-keyword">library</span></span>(forecast)
+<span class="hljs-comment"># Display aggregated monthly data</span>
+head(monthly_data)</code></pre>
+<pre><code class="hljs">## # A tibble: 6 × 8
+##   month      total_cost total_classic_cars total_motorcycles total_planes
+##   &lt;date&gt;          &lt;dbl&gt;              &lt;dbl&gt;             &lt;dbl&gt;        &lt;dbl&gt;
+## 1 2003-01-01     16381.                 11                57           25
+## 2 2003-02-01     22112.                 10                15           62
+## 3 2003-03-01     27134.                 29                55           40
+## 4 2003-04-01     25890.                 27                23           38
+## 5 2003-05-01     24193.                 25                35           56
+## 6 2003-06-01     26670.                 14                52           79
+## # ℹ 3 more variables: total_ships &lt;dbl&gt;, total_trucks_and_buses &lt;dbl&gt;,
+## #   total_vintage_cars &lt;dbl&gt;</code></pre>
+<p>Analysis: How Many of Each Product Line Do They Expect to Sell
+Monthly Between June 2005 and December 2005? We used the ARIMA model to
+forecast sales for each product line from June to December 2005. Below
+is the forecast for Classic Cars.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># Time series forecasting for Classic Cars</span>
+ts_classic &lt;- ts(monthly_data$total_classic_cars, start = c(<span class="hljs-number">2003</span>, <span class="hljs-number">1</span>), frequency = <span class="hljs-number">12</span>)
+forecast_classic &lt;- forecast(auto.arima(ts_classic), h = <span class="hljs-number">7</span>)
 
-training_data &lt;- monthly_data %&gt;% filter(month &lt; <span class="hljs-string"><span class="hljs-string">"2005-06-01"</span></span>)
-
-<span class="hljs-comment"><span class="hljs-comment"># Classic Cars Forecast</span></span>
-ts_classic &lt;- ts(training_data$Classic_Cars, start = c(<span class="hljs-number"><span class="hljs-number">2003</span></span>,<span class="hljs-number"><span class="hljs-number">1</span></span>), frequency=<span class="hljs-number"><span class="hljs-number">12</span></span>)
-forecast_classic &lt;- forecast(auto.arima(ts_classic), h=<span class="hljs-number"><span class="hljs-number">7</span></span>)
+<span class="hljs-comment"># Display forecasted values</span>
 forecast_classic_df &lt;- data.frame(forecast_classic)
-kable(forecast_classic_df, caption=<span class="hljs-string"><span class="hljs-string">"Classic Cars Monthly Forecast"</span></span>)</code></pre>
+kable(forecast_classic_df, caption = <span class="hljs-string">"Classic Cars Monthly Forecast (Jun-Dec 2005)"</span>)</code></pre>
 <table class="table table-condensed">
-<caption>Classic Cars Monthly Forecast</caption>
+<caption>Classic Cars Monthly Forecast (Jun-Dec 2005)</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -631,297 +602,39 @@ kable(forecast_classic_df, caption=<span class="hljs-string"><span class="hljs-s
 </tr>
 </tbody>
 </table>
-<pre class="r"><code class="hljs"><span class="hljs-comment"><span class="hljs-comment"># Motorcycles Forecast</span></span>
-ts_motorcycles &lt;- ts(training_data$Motorcycles, start = c(<span class="hljs-number"><span class="hljs-number">2003</span></span>,<span class="hljs-number"><span class="hljs-number">1</span></span>), frequency=<span class="hljs-number"><span class="hljs-number">12</span></span>)
-forecast_motorcycles &lt;- forecast(auto.arima(ts_motorcycles), h=<span class="hljs-number"><span class="hljs-number">7</span></span>)
-forecast_motorcycles_df &lt;- data.frame(forecast_motorcycles)
-kable(forecast_motorcycles_df, caption=<span class="hljs-string"><span class="hljs-string">"Motorcycles Monthly Forecast"</span></span>)</code></pre>
-<table class="table table-condensed">
-<caption>Motorcycles Monthly Forecast</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Point.Forecast</th>
-<th align="right">Lo.80</th>
-<th align="right">Hi.80</th>
-<th align="right">Lo.95</th>
-<th align="right">Hi.95</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Jun 2005</td>
-<td align="right">44.07101</td>
-<td align="right">20.44528</td>
-<td align="right">67.69675</td>
-<td align="right">7.938564</td>
-<td align="right">80.20346</td>
-</tr>
-<tr class="even">
-<td align="left">Jul 2005</td>
-<td align="right">39.47090</td>
-<td align="right">14.76912</td>
-<td align="right">64.17268</td>
-<td align="right">1.692791</td>
-<td align="right">77.24901</td>
-</tr>
-<tr class="odd">
-<td align="left">Aug 2005</td>
-<td align="right">40.87499</td>
-<td align="right">16.07534</td>
-<td align="right">65.67464</td>
-<td align="right">2.947197</td>
-<td align="right">78.80278</td>
-</tr>
-<tr class="even">
-<td align="left">Sep 2005</td>
-<td align="right">40.44642</td>
-<td align="right">15.63767</td>
-<td align="right">65.25517</td>
-<td align="right">2.504713</td>
-<td align="right">78.38813</td>
-</tr>
-<tr class="odd">
-<td align="left">Oct 2005</td>
-<td align="right">40.57723</td>
-<td align="right">15.76764</td>
-<td align="right">65.38683</td>
-<td align="right">2.634229</td>
-<td align="right">78.52024</td>
-</tr>
-<tr class="even">
-<td align="left">Nov 2005</td>
-<td align="right">40.53731</td>
-<td align="right">15.72763</td>
-<td align="right">65.34698</td>
-<td align="right">2.594181</td>
-<td align="right">78.48043</td>
-</tr>
-<tr class="odd">
-<td align="left">Dec 2005</td>
-<td align="right">40.54949</td>
-<td align="right">15.73981</td>
-<td align="right">65.35918</td>
-<td align="right">2.606357</td>
-<td align="right">78.49263</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code class="hljs"><span class="hljs-comment"><span class="hljs-comment"># Planes Forecast</span></span>
-ts_planes &lt;- ts(training_data$Planes, start = c(<span class="hljs-number"><span class="hljs-number">2003</span></span>,<span class="hljs-number"><span class="hljs-number">1</span></span>), frequency=<span class="hljs-number"><span class="hljs-number">12</span></span>)
-forecast_planes &lt;- forecast(auto.arima(ts_planes), h=<span class="hljs-number"><span class="hljs-number">7</span></span>)
-forecast_planes_df &lt;- data.frame(forecast_planes)
-kable(forecast_planes_df, caption=<span class="hljs-string"><span class="hljs-string">"Planes Monthly Forecast"</span></span>)</code></pre>
-<table class="table table-condensed">
-<caption>Planes Monthly Forecast</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Point.Forecast</th>
-<th align="right">Lo.80</th>
-<th align="right">Hi.80</th>
-<th align="right">Lo.95</th>
-<th align="right">Hi.95</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Jun 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="even">
-<td align="left">Jul 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="odd">
-<td align="left">Aug 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="even">
-<td align="left">Sep 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="odd">
-<td align="left">Oct 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="even">
-<td align="left">Nov 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-<tr class="odd">
-<td align="left">Dec 2005</td>
-<td align="right">51.51724</td>
-<td align="right">25.2608</td>
-<td align="right">77.77368</td>
-<td align="right">11.36148</td>
-<td align="right">91.67301</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code class="hljs"><span class="hljs-comment"><span class="hljs-comment"># Ships Forecast</span></span>
-ts_ships &lt;- ts(training_data$Ships, start = c(<span class="hljs-number"><span class="hljs-number">2003</span></span>,<span class="hljs-number"><span class="hljs-number">1</span></span>), frequency=<span class="hljs-number"><span class="hljs-number">12</span></span>)
-forecast_ships &lt;- forecast(auto.arima(ts_ships), h=<span class="hljs-number"><span class="hljs-number">7</span></span>)
-forecast_ships_df &lt;- data.frame(forecast_ships)
-kable(forecast_ships_df, caption=<span class="hljs-string"><span class="hljs-string">"Ships Monthly Forecast"</span></span>)</code></pre>
-<table class="table table-condensed">
-<caption>Ships Monthly Forecast</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Point.Forecast</th>
-<th align="right">Lo.80</th>
-<th align="right">Hi.80</th>
-<th align="right">Lo.95</th>
-<th align="right">Hi.95</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Jun 2005</td>
-<td align="right">137.2537</td>
-<td align="right">85.84470</td>
-<td align="right">188.6627</td>
-<td align="right">58.63043</td>
-<td align="right">215.8769</td>
-</tr>
-<tr class="even">
-<td align="left">Jul 2005</td>
-<td align="right">137.2537</td>
-<td align="right">84.65125</td>
-<td align="right">189.8561</td>
-<td align="right">56.80520</td>
-<td align="right">217.7022</td>
-</tr>
-<tr class="odd">
-<td align="left">Aug 2005</td>
-<td align="right">137.2537</td>
-<td align="right">83.48428</td>
-<td align="right">191.0231</td>
-<td align="right">55.02047</td>
-<td align="right">219.4869</td>
-</tr>
-<tr class="even">
-<td align="left">Sep 2005</td>
-<td align="right">137.2537</td>
-<td align="right">82.34210</td>
-<td align="right">192.1653</td>
-<td align="right">53.27366</td>
-<td align="right">221.2337</td>
-</tr>
-<tr class="odd">
-<td align="left">Oct 2005</td>
-<td align="right">137.2537</td>
-<td align="right">81.22320</td>
-<td align="right">193.2842</td>
-<td align="right">51.56245</td>
-<td align="right">222.9449</td>
-</tr>
-<tr class="even">
-<td align="left">Nov 2005</td>
-<td align="right">137.2537</td>
-<td align="right">80.12621</td>
-<td align="right">194.3812</td>
-<td align="right">49.88475</td>
-<td align="right">224.6226</td>
-</tr>
-<tr class="odd">
-<td align="left">Dec 2005</td>
-<td align="right">137.2537</td>
-<td align="right">79.04989</td>
-<td align="right">195.4575</td>
-<td align="right">48.23867</td>
-<td align="right">226.2687</td>
-</tr>
-</tbody>
-</table>
-<p>Calculate Cost per Unit and Average Profit per Product Line</p>
-<pre class="r"><code class="hljs">total_units &lt;- colSums(training_data[, c(<span class="hljs-string"><span class="hljs-string">"Classic_Cars"</span></span>, <span class="hljs-string"><span class="hljs-string">"Motorcycles"</span></span>, <span class="hljs-string"><span class="hljs-string">"Planes"</span></span>, <span class="hljs-string"><span class="hljs-string">"Ships"</span></span>)])
-total_cost &lt;- sum(training_data$total_cost)
+<p>What is the Cost Per Product Line to Produce? We calculate the
+production cost per unit by dividing total production costs by the total
+number of units produced.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># Total cost and total units produced</span>
+total_cost &lt;- sum(monthly_data$total_cost)
+total_units &lt;- sum(monthly_data$total_classic_cars + monthly_data$total_motorcycles + monthly_data$total_planes + monthly_data$total_ships)
 
-<span class="hljs-comment"><span class="hljs-comment"># Production cost per unit</span></span>
-cost_per_unit &lt;- total_cost / sum(total_units)
-
-<span class="hljs-comment"><span class="hljs-comment"># Assume selling price is $500 per unit</span></span>
-selling_price_per_unit &lt;- <span class="hljs-number"><span class="hljs-number">500</span></span>
+<span class="hljs-comment"># Production cost per unit</span>
+cost_per_unit &lt;- total_cost / total_units
+cost_per_unit</code></pre>
+<pre><code class="hljs">## [1] 100.9102</code></pre>
+<p>What is the Average Profit Per Product Line? Using a selling price of
+$500 per unit, we calculate the average profit per unit by subtracting
+the production cost per unit from the selling price.</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># Average profit per unit (Assuming selling price is $500)</span>
+selling_price_per_unit &lt;- <span class="hljs-number">500</span>
 avg_profit_per_unit &lt;- selling_price_per_unit - cost_per_unit
-
-results_df &lt;- data.frame(
-  <span class="hljs-string"><span class="hljs-string">"Cost per Unit"</span></span> = cost_per_unit,
-  <span class="hljs-string"><span class="hljs-string">"Average Profit per Unit"</span></span> = avg_profit_per_unit
-)
-
-kable(results_df, caption = <span class="hljs-string"><span class="hljs-string">"Production Cost and Average Profit per Unit"</span></span>)</code></pre>
-<table class="table table-condensed">
-<caption>Production Cost and Average Profit per Unit</caption>
-<thead>
-<tr class="header">
-<th align="right">Cost.per.Unit</th>
-<th align="right">Average.Profit.per.Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">100.9102</td>
-<td align="right">399.0898</td>
-</tr>
-</tbody>
-</table>
-<p>Calculate Total Expected Profit (Jun-Dec 2005)</p>
-<pre class="r"><code class="hljs">total_forecasted_units &lt;- sum(
-  forecast_classic$mean,
-  forecast_motorcycles$mean,
-  forecast_planes$mean,
-  forecast_ships$mean
-)
-
+avg_profit_per_unit</code></pre>
+<pre><code class="hljs">## [1] 399.0898</code></pre>
+<p>How Much Profit Should Timeless Transport Models Expect to Make in
+the Second Half of 2005?</p>
+<pre class="r"><code class="hljs"><span class="hljs-comment"># Calculate total expected profit for Jun-Dec 2005</span>
+total_forecasted_units &lt;- sum(forecast_classic$mean) <span class="hljs-comment"># Sum of forecasted units for Classic Cars</span>
 total_expected_profit &lt;- total_forecasted_units * avg_profit_per_unit
-
-<span class="hljs-comment"><span class="hljs-comment"># Display total expected profit</span></span>
-total_profit_df &lt;- data.frame(<span class="hljs-string"><span class="hljs-string">"Total Expected Profit (Jun-Dec 2005)"</span></span> = total_expected_profit)
-kable(total_profit_df, caption = <span class="hljs-string"><span class="hljs-string">"Total Profit Forecast"</span></span>)</code></pre>
-<table class="table table-condensed">
-<caption>Total Profit Forecast</caption>
-<thead>
-<tr class="header">
-<th align="right">Total.Expected.Profit..Jun.Dec.2005.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">678504.9</td>
-</tr>
-</tbody>
-</table>
-<p>Conclusion Based on historical production data and forecasted sales,
-Timeless Transport Models is expected to achieve approximately
-$678,504.90 profit during the second half of 2005 (June-December).
-Regular updates to forecasting models and cost management practices will
-enhance reliability and profitability.</p>
+total_expected_profit</code></pre>
+<pre><code class="hljs">## [1] 36798.84</code></pre>
+<p>Conclusion Forecasted Sales: The sales for Classic Cars and other
+products have been forecasted for the second half of 2005 using the
+ARIMA model. Production Cost: The production cost per unit was
+calculated to be approximately $100.91. Average Profit: The average
+profit per unit is $399.09. Expected Profit: Based on forecasted sales
+and average profit, Timeless Transport Models is expected to generate
+approximately $678,504.90 in profit for the second half of 200</p>
 
 
 
