@@ -48,6 +48,7 @@ The data spans from January 2003 to April 2004.
 Data has been aggregated by month to simplify analysis.
 Aggregate Weekly Data to Monthly Data:
 
+
 ```{r}
 # Aggregate data by month
 production_data$month <- floor_date(production_data$week, "month")
