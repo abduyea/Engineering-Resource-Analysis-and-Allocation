@@ -2,8 +2,14 @@
 title: "Engineering Resource Analysis and Profit Forecasting"
 author: "Abdulfetah"
 date: "2025-03-18"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
 
 ```{r setup, include=FALSE}
 
@@ -20,7 +26,7 @@ library(knitr)
 
 
 ```
-
+```
 Summary
 Timeless Transport Models operates three factories producing various product lines. The company is aiming to forecast profits for the second half of 2005. 
 The questions to address are:
@@ -125,9 +131,6 @@ Average Profit: The average profit per unit is $399.09.
 Expected Profit: Based on forecasted sales and average profit, Timeless Transport Models is expected to generate approximately $678,504.90 in profit for the second half of 200
 
 
-
-```{r}
-```
 
 ```{r}
 ```
